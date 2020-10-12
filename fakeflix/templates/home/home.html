@@ -1,0 +1,22 @@
+{% extends 'layout.html' %} {% block content %}
+<main id="main">
+<p>WELCOME!</p>
+<br/>
+<p> This is FakeFlix </p>
+<p> Yes like Netflix but you can't watch anything...</p>
+<p> Feel free to click on over to MOVIES</p>
+<p>To see all the movies you can't watch, but browse!</p>
+<br/>
+<div class="row">
+  <div class="column">
+    <img src="{{url_for('static', filename='avengers.jpg')}}" alt="Avengers" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="{{url_for('static', filename='starwars.png')}}" alt="Star Wars" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="{{url_for('static', filename='harrypotter.jpg')}}" alt="Harry Potter" style="width:100%">
+  </div>
+</div>
+</main>
+{% endblock %}

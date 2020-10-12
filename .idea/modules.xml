@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/FakeFlix.iml" filepath="$PROJECT_DIR$/.idea/FakeFlix.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/Uni/Compsci 235/CS235FlixSkeleton/datafilereaders/.idea/datafilereaders.iml" filepath="$USER_HOME$/Desktop/Uni/Compsci 235/CS235FlixSkeleton/datafilereaders/.idea/datafilereaders.iml" />
+    </modules>
+  </component>
+</project>

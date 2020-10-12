@@ -1,0 +1,68 @@
+{% extends 'layout.html' %} {% block content %}
+<main>
+    <header id="moviesheader">
+        <h1>MOVIES</h1>
+    </header>
+
+    <nav style="clear:both">
+            <div class="button-left">
+                {% if first_movie_url is not none %}
+                    <button class="button" onclick="location.href='{{first_movie_url}}'">First</button>
+                {% else %}
+                    <button class="button-disabled" disabled>First</button>
+                {% endif %}
+                {% if prev_movie_url is not none %}
+                    <button class="button" onclick="location.href='{{prev_movie_url}}'">Previous</button>
+                {% else %}
+                    <button class="button-disabled" disabled>Previous</button>
+                {% endif %}
+            </div>
+            <div style="float:right">
+                {% if next_movie_url is not none %}
+                    <button class="button" onclick="location.href='{{next_movie_url}}'">Next</button>
+                {% else %}
+                    <button class="button-disabled" disabled>Next</button>
+                {% endif %}
+                {% if last_movie_url is not none %}
+                    <button class="button" onclick="location.href='{{last_movie_url}}'">Last</button>
+                {% else %}
+                    <button class="button-disabled" disabled>Last</button>
+                {% endif %}
+            </div>
+        </nav>
+    {% for movie in movies %}
+    <article>
+        <h2 id="moviestitle">{{movie.title}}</h2>
+        <img src="https://i0.wp.com/stoppress.co.nz/wp-content/uploads/2019/12/Screen-Shot-2019-12-12-at-9.46.48-AM.png?fit=2076%2C994&ssl=1" alt="Movies" class="moviebox">
+    </article>
+    {% endfor %}
+    <footer>
+        <nav style="clear:both">
+            <div class="button-left">
+                {% if first_movie_url is not none %}
+                    <button class="button" onclick="location.href='{{first_movie_url}}'">First</button>
+                {% else %}
+                    <button class="button-disabled" disabled>First</button>
+                {% endif %}
+                {% if prev_movie_url is not none %}
+                    <button class="button" onclick="location.href='{{prev_movie_url}}'">Previous</button>
+                {% else %}
+                    <button class="button-disabled" disabled>Previous</button>
+                {% endif %}
+            </div>
+            <div style="float:right">
+                {% if next_movie_url is not none %}
+                    <button class="button" onclick="location.href='{{next_movie_url}}'">Next</button>
+                {% else %}
+                    <button class="button-disabled" disabled>Next</button>
+                {% endif %}
+                {% if last_movie_url is not none %}
+                    <button class="button" onclick="location.href='{{last_movie_url}}'">Last</button>
+                {% else %}
+                    <button class="button-disabled" disabled>Last</button>
+                {% endif %}
+            </div>
+        </nav>
+    </footer>
+</main>
+{% endblock %}
