@@ -8,25 +8,9 @@ class NonExistentMovieException(Exception):
     pass
 
 
-def get_first_movie(repo: AbstractRepository):
-    movie = repo.get_first_movie()
-    return movie_to_dict(movie)
-
-
-def get_last_movie(repo: AbstractRepository):
-    movie = repo.get_last_movie()
-    return movie_to_dict(movie)
-
-
-def get_movies_by_title(title: str, year: int, repo: AbstractRepository):
-    movies = repo.get_movies_by_title(target_title= title, target_year=year)
-    movies_dto = list()
-    prev_title = next_title = None
-    if len(movies) > 0:
-        prev_title = repo.get_title_of_prev_movie(movies[0])
-        next_title = repo.get_title_of_next_movie(movies[0])
-        movies_dto = movies_to_dict(movies)
-    return movies_dto, prev_title, next_title
+def get_all_movies(repo: AbstractRepository):
+    movies = repo.get_all_movies()
+    return movies_to_dict(movies)
 
 
 def movie_to_dict(movie: Movie):

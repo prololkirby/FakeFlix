@@ -13,25 +13,12 @@ class RepositoryException(Exception):
 
 
 class AbstractRepository(abc.ABC):
-
     @abc.abstractmethod
-    def get_first_movie(self) -> Movie:
+    def get_user(self, username):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def get_last_movie(self) -> Movie:
-        raise NotImplementedError
-
-    @abc.abstractmethod
-    def get_movies_by_title(self, target_title, target_year) -> List[Movie]:
-        raise NotImplementedError
-
-    @abc.abstractmethod
-    def get_title_of_prev_movie(self, movie: Movie):
-        raise NotImplementedError
-
-    @abc.abstractmethod
-    def get_title_of_next_movie(self, movie: Movie):
+    def add_user(self):
         raise NotImplementedError
 
     @abc.abstractmethod
@@ -39,17 +26,9 @@ class AbstractRepository(abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def get_movie_by_id(self, id_list):
-        raise NotImplementedError
-
-    @abc.abstractmethod
-    def movie_index(self, movie: Movie):
-        raise NotImplementedError
-
-    @abc.abstractmethod
     def add_movie(self, movie: Movie):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def get_movie(self, id: int) -> Movie:
+    def get_all_movies(self):
         raise NotImplementedError
