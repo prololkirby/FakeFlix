@@ -32,3 +32,23 @@ class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def get_all_movies(self):
         raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_movies_by_year(self, year):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_prev_year(self, movie:Movie):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_next_year(self, movie:Movie):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_last_movie(self):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_first_movie(self):
+        raise NotImplementedError
