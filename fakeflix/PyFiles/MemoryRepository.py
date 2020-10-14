@@ -30,56 +30,6 @@ class MemoryRepository(AbstractRepository, ABC):
     def get_all_movies(self):
         return self._movies
 
-    def get_movies_by_year(self, target_year: int):
-        target_movie = Movie(title=None, release_year=target_year)
-        matching_movies = list()
-        try:
-            index = self._movies.index(target_movie)
-            for movie in self._movies[index:None]:
-                if movie.release_year == target_movie:
-                    matching_movies.append(movie)
-                else:
-                    break
-        except ValueError:
-            pass
-        return matching_movies
-
-    def get_prev_year(self, movie: Movie):
-        prev_year = None
-        try:
-            index = self._movies.index(movie)
-            for stored_movie in reversed(self._movies[0:index]):
-                if stored_movie.release_year < movie.release_year:
-                    prev_year = stored_movie.release_year
-                    break
-        except ValueError:
-            pass
-        return prev_year
-
-    def get_next_year(self, movie: Movie):
-        next_year = None
-        try:
-            index = self._movies.index(movie)
-            for stored_movie in self._movies[index+1:len(self._movies)]:
-                if stored_movie.release_year > movie.release_year:
-                    next_year = stored_movie.release_year
-                    break
-        except ValueError:
-            pass
-        return next_year
-
-    def get_first_movie(self):
-        movie = None
-        if len(self._movies) > 0:
-            movie = self._movies[0]
-        return movie
-
-    def get_last_movie(self):
-        movie = None
-        if len(self._movies) > 0:
-            movie = self._movies[-1]
-        return movie
-
 def load_movies(data_path: str, repo: MemoryRepository):
     for data_row in read_csv_file(os.path.join(data_path, 'Data1000Movies.csv')):
         number_of_tags = len(data_row)-12

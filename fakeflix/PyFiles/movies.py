@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 import fakeflix.PyFiles.Repository as repo
 import fakeflix.PyFiles.services as services
-from fakeflix.utilities import utilities
+#from fakeflix.utilities import utilities
 from fakeflix.PyFiles.model import *
 
 movies_blueprint = Blueprint('movies_bp', __name__)
@@ -9,31 +9,32 @@ movies_blueprint = Blueprint('movies_bp', __name__)
 
 @movies_blueprint.route('/movies', methods=['GET'])
 def movies_by_year():
-    """
-    target_year = request.args.get('release_year')
-    first_movie = services.get_first_movie(repo.repo_instance)
-    last_movie = services.get_last_movie(repo.repo_instance)
-    if target_year is None:
-        target_year = first_movie['release_year']
-    movies, prev_year, next_year = services.get_movies_by_year(target_year, repo.repo_instance)
+    movies_per_page = 10
+    
+    cursor = request.args.get('cursor')
 
-    first_movie_url = None
-    last_movie_url = None
-    next_movie_url = None
-    prev_movie_url = None
+    if cursor is None:
+        cursor = 0
+    else:
+        cursor = int(cursor)
 
-    if len(movies) > 0:
-        if prev_year is not None:
-            prev_movie_url = url_for('movies_bp.movies_by_year', year=prev_year)
-            first_movie_url = url_for('movies_bp.movies_by_year', year=first_movie['release_year'])
+    movies = services.get_all_movies(repo.repo_instance)
+    select_movies = movies[cursor:cursor+movies_per_page]
+    
+    next_movies_url = None
+    prev_movies_url = None
 
-        if next_year is not None:
-            next_movie_url = url_for('movies_bp.movies_by_year', year=next_year)
-            last_movie_url = url_for('movies_bp.movies_by_year', year=last_movie['release_year'])
+    if cursor > 0:
+        prev_movies_url = url_for('movies_bp.movies_by_year', cursor=cursor - movies_per_page)
 
-    """
-    all_movies = services.get_all_movies(repo.repo_instance)
-
-    return render_template('movies/movies.html',
-                            title='Movies',
-                            movies=all_movies)
+    if cursor + movies_per_page < len(movies):
+        # There are further articles, so generate URLs for the 'next' and 'last' navigation buttons.
+        next_movies_url = url_for('movies_bp.movies_by_year', cursor=cursor + movies_per_page)
+            
+    return render_template(
+        'movies/movies.html',
+        title='Movies',
+        movies=select_movies,
+        next_movies_url=next_movies_url,
+        prev_movies_url=prev_movies_url
+        )

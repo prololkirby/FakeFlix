@@ -6,7 +6,17 @@ from fakeflix.PyFiles.model import *
 
 class NonExistentMovieException(Exception):
     pass
-
+"""
+def get_movies_by_set(target_num, repo: AbstractRepository):
+    movies = repo.get_all_movies()
+    movies_dto = list()
+    prev=next=None
+    if len(movies) > 0:
+        prev = repo.get_prev_movies(target_num)
+        next = repo.get_next_movies(target_num)
+        movies_dto = movies_to_dict(movies)
+    return movies_dto, prev, next
+"""
 def get_first_movie(repo: AbstractRepository):
     movie = repo.get_first_movie()
     return movie_to_dict(movie)
