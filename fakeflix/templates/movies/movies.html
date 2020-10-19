@@ -2,18 +2,18 @@
 <main id="main">
     <header>
         <nav>
-        <div class="button-left">
+            <div style="float:right">
+                {% if next_movies_url is not none %}
+                <button class="button" onclick="location.href='{{next_movies_url}}'">NEXT</button>
+                {% else %}
+                <button class="button-disabled" disabled>NEXT</button>
+                {% endif %}
+            </div>
+            <div style="float:right">
             {% if prev_movies_url is not none %}
             <button class="button" onclick="location.href='{{prev_movies_url}}'">PREV</button>
             {% else %}
             <button class="button-disabled" disabled>PREV</button>
-            {% endif %}
-        </div>
-        <div style="float:right">
-            {% if next_movies_url is not none %}
-            <button class="button" onclick="location.href='{{next_movies_url}}'">NEXT</button>
-            {% else %}
-            <button class="button-disabled" disabled>NEXT</button>
             {% endif %}
         </div>
     </nav>
@@ -26,21 +26,21 @@
     {% endfor %}
     <footer>
         <nav>
-        <div class="button-left">
+            <div style="float:right">
+                {% if next_movies_url is not none %}
+                <button class="button" onclick="location.href='{{next_movies_url}}'">NEXT</button>
+                {% else %}
+                <button class="button-disabled" disabled>NEXT</button>
+                {% endif %}
+            </div>
+            <div style="float:right">
             {% if prev_movies_url is not none %}
             <button class="button" onclick="location.href='{{prev_movies_url}}'">PREV</button>
             {% else %}
             <button class="button-disabled" disabled>PREV</button>
             {% endif %}
-        </div>
-        <div style="float:right">
-            {% if next_movies_url is not none %}
-            <button class="button" onclick="location.href='{{next_movies_url}}'">NEXT</button>
-            {% else %}
-            <button class="button-disabled" disabled>NEXT</button>
-            {% endif %}
-        </div>
-    </nav>
+            </div>
+        </nav>
     </footer>
 </main>
 {% endblock %}
