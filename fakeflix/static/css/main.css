@@ -10,7 +10,6 @@ font-family: verdana;
 }
 body, html{
 height: 100%;
-margin-left: 100px;
 }
 h1{
 color: red;
@@ -91,7 +90,7 @@ background: white;
 color: red;
 }
 .button-left{
-margin-left: -100px;
+margin-left: -25px;
 }
 .text{
 color: white;
@@ -111,16 +110,14 @@ display: flex;
 flex-direction: column;
 }
 #main{
-margin-left: 150px;
+margin-left: 100px;
 color: white;
 text-align: center;
 font-size: 50px;
-width: 90%;
 }
 #container{
 display: flex;
 flex-direction: row;
-width: 90%;
 }
 .row {
   display: flex;

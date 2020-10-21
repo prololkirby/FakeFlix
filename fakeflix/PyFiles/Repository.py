@@ -1,7 +1,6 @@
 import abc
-from typing import List
-
 from fakeflix.PyFiles.model import *
+
 
 repo_instance = None
 
@@ -13,13 +12,6 @@ class RepositoryException(Exception):
 
 
 class AbstractRepository(abc.ABC):
-    @abc.abstractmethod
-    def get_user(self, username):
-        raise NotImplementedError
-
-    @abc.abstractmethod
-    def add_user(self):
-        raise NotImplementedError
 
     @abc.abstractmethod
     def get_num_of_movies(self):

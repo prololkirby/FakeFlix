@@ -1,16 +1,16 @@
 import csv
 
-from PyFiles.model import Genre, Director, Actor, Movie
+from fakeflix.PyFiles.model import Genre, Director, Actor, Movie
 
 
 class MovieFileCSVReader:
 
     def __init__(self, file_name: str):
         self.__file_name = file_name
-        self.dataset_of_movies = list()
-        self.dataset_of_actors = list()
-        self.dataset_of_directors = list()
-        self.dataset_of_genres = list()
+        self._dataset_of_movies = list()
+        self._dataset_of_actors = list()
+        self._dataset_of_directors = list()
+        self._dataset_of_genres = list()
     @property
     def dataset_of_movies(self):
         return self.dataset_of_movies

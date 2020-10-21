@@ -1,7 +1,7 @@
 import os
 import pytest
 
-from Pyfiles.fakeflix import create_app
+from fakeflix import create_app
 from PyFiles import MemoryRepository
 from PyFiles.MemoryRepository import MemoryRepository
 

@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 
-from fakeflix.PyFiles.MemoryRepository import MemoryRepository, populate
+from .PyFiles.MemoryRepository import *
 import fakeflix.PyFiles.Repository as repo
 
 
@@ -19,13 +19,13 @@ def create_app(test_config=None):
     populate(data_path, repo.repo_instance)
 
     with app.app_context():
-        from .PyFiles import home
+        from fakeflix.PyFiles import home
         app.register_blueprint(home.home_blueprint)
 
-        from .PyFiles import movies
+        from fakeflix.PyFiles import movies
         app.register_blueprint(movies.movies_blueprint)
 
-        from fakeflix.utilities import utilities
-        app.register_blueprint(utilities.utilities_blueprint)
+        #from fakeflix.utilities import utilities
+        #app.register_blueprint(utilities.utilities_blueprint)
 
     return app

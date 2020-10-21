@@ -15,12 +15,6 @@ class MemoryRepository(AbstractRepository, ABC):
         self._movies_index = dict()
         self._users = list()
 
-    def add_user(self, user: User):
-        self._users.append(user)
-
-    def get_user(self, username) -> User:
-        return next((user for user in self._users if user.username == username), None)
-
     def get_num_of_movies(self):
         return len(self._movies)
 
@@ -29,6 +23,7 @@ class MemoryRepository(AbstractRepository, ABC):
 
     def get_all_movies(self):
         return self._movies
+
 
 def load_movies(data_path: str, repo: MemoryRepository):
     for data_row in read_csv_file(os.path.join(data_path, 'Data1000Movies.csv')):
