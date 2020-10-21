@@ -3,8 +3,7 @@ import pytest
 
 from fakeflix import create_app
 from PyFiles import MemoryRepository
-from PyFiles.MemoryRepository import MemoryRepository
-
+from PyFiles.MemoryRepository import MemoryRepository, populate
 
 TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'Admin-Wesley', 'PycharmProjects', 'FakeFlix', 'tests', 'data')
 #TEST DATA PATH should be set to the route from C: to the data folder
@@ -13,7 +12,7 @@ TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'Admin-Wesley', 'PycharmPro
 @pytest.fixture
 def in_memory_repo():
     repo = MemoryRepository()
-    MemoryRepository.populate(TEST_DATA_PATH, repo)
+    populate(TEST_DATA_PATH, repo)
     return repo
 
 
