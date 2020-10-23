@@ -44,3 +44,10 @@ assigns TEST_DATA_PATH with the following value (the use of os.path.join and os.
 `C:\Users\Admin\PyCharmProjects\FakeFlix\tests\data`
 
 You can then run tests from within PyCharm.
+Type 'python -m pytest' into the virtual environment terminal.
+
+If that way does not work, try:
+The way to do this is to 'Add Configuration' next to the |> button,
+add pytest, custom, with the current python interpreter.
+Once created, you should see the box now contains pytest, click the |> to run pytest.
+Here you will see the tests in more detail.

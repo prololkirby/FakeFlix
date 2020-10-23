@@ -1,5 +1,5 @@
 import pytest
-from PyFiles.model import *
+from fakeflix.PyFiles.model import *
 
 
 def test_repository_can_retrieve_article_count(in_memory_repo):

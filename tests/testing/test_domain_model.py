@@ -1,4 +1,4 @@
-from PyFiles.model import *
+from fakeflix.PyFiles.model import *
 import pytest
 
 

@@ -2,10 +2,10 @@ import os
 import pytest
 
 from fakeflix import create_app
-from PyFiles import MemoryRepository
-from PyFiles.MemoryRepository import MemoryRepository, populate
 
-TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'Admin-Wesley', 'PycharmProjects', 'FakeFlix', 'tests', 'data')
+from fakeflix.PyFiles.MemoryRepository import MemoryRepository, populate
+
+TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'Admin-Wesley', 'Desktop', 'Uni', 'FakeFlix', 'tests', 'data')
 #TEST DATA PATH should be set to the route from C: to the data folder
 
 
